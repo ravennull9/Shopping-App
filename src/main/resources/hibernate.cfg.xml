@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/shoppingapp</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password">yuesos1</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQL8Dialect</property>
+
+        <property name="hibernate.current_session_context_class">thread</property>
+        <property name="hbm2ddl.auto">update</property>
+
+        <property name="show_sql">true</property>
+        <property name="format_sql">true</property>
+
+        <property name="hibernate.c3p0.min_size">5</property>
+        <property name="hibernate.c3p0.max_size">30</property>
+
+        <!--        The timeout property specifies the number of seconds an unused connection will be kept before being discarded.-->
+        <property name="hibernate.c3p0.timeout">1800</property>
+        <!--        how many connections it should try to acquire if the pool runs out of available connections.-->
+        <property name="hibernate.c3p0.acquire_increment">5</property>
+
+        <!--    XML Mapping    -->
+        <mapping class="shoppingApp.domain.User"/>
+        <mapping class="shoppingApp.domain.Order"/>
+        <mapping class="shoppingApp.domain.Ordered_Product"/>
+        <mapping class="shoppingApp.domain.Product"/>
+        <mapping class="shoppingApp.domain.Watched_Product"/>
+
+
+    </session-factory>
+</hibernate-configuration>
